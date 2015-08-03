@@ -6,34 +6,45 @@
     <title></title>
     <script src="../../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
 
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!--Office-->
     <link href="../../Content/Office.css" rel="stylesheet" type="text/css" />
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+
 
     <!-- To enable offline debugging using a local reference to Office.js, use:                        -->
     <!-- <script src="../../Scripts/Office/MicrosoftAjax.js" type="text/javascript"></script>  -->
     <!-- <script src="../../Scripts/Office/1/office.js" type="text/javascript"></script>  -->
 
+    <!--App-->
     <link href="../App.css" rel="stylesheet" type="text/css" />
     <script src="../App.js" type="text/javascript"></script>
 
     <link href="Home.css" rel="stylesheet" type="text/css" />
     <script src="Home.js" type="text/javascript"></script>
+
 </head>
 <body>
     <div id="content-header">
         <div class="padding">
-            <h1>Welcome</h1>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Tweet from Office</h1>
+                </div>
+            </div>
         </div>
     </div>
     <div id="content-main">
         <div class="padding">
-            <p><strong>Add home screen content here.</strong></p>
-            <p>For example:</p>
-            <button id="get-data-from-selection">Get data from selection</button>
-
-            <p style="margin-top: 50px;">
-                <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=276812">Find more samples online...</a>
-            </p>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Send tweets from Office</p>
+                    <textarea rows="6" class="form-control" id="Tweet" maxlength="140"></textarea>
+                    <button id="SendTweet" class="btn btn-primary">Tweet</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
