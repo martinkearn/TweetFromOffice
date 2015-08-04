@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.OfficeAddIn", "TweetFromOffice.AddIn\TweetFromOffice.OfficeAddIn.csproj", "{BB616737-E409-402A-A433-DFD0D8C6F958}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.BackEnd", "TweetFromOffice.BackEnd\TweetFromOffice.BackEnd.csproj", "{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.OfficeAddIn", "TweetFromOffice.OfficeAddIn\TweetFromOffice.OfficeAddIn.csproj", "{BB616737-E409-402A-A433-DFD0D8C6F958}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
