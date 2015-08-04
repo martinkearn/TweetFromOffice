@@ -36,7 +36,7 @@ namespace TweetFromOffice.BackEnd.Controllers
                 await
                 (from search in twitterCtx.Search
                  where search.Type == SearchType.Search &&
-                       search.Query == "\"LINQ to Twitter\""
+                       search.Query == "\"Windows 10\""
                  select search)
                 .SingleOrDefaultAsync();
 

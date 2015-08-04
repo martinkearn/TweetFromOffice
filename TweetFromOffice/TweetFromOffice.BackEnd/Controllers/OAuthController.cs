@@ -17,10 +17,8 @@ namespace TweetFromOffice.BackEnd.Controllers
             return RedirectToAction("BeginAsync");
         }
 
-        public async Task<ActionResult> BeginAsync(string returnUrl)
+        public async Task<ActionResult> BeginAsync(string returnUrl = "/")
         {
-            if (string.IsNullOrEmpty(returnUrl)) returnUrl = "/";
-
             var auth = new MvcAuthorizer
             {
                 CredentialStore = new SessionStateCredentialStore
@@ -33,7 +31,7 @@ namespace TweetFromOffice.BackEnd.Controllers
             //check if we already have auth in a cookie
             if (Cookies.Read(Request, Server, "TwitterOAuthToken") != null)
             {
-                //load credentials from cookie. if oauthToken is not null, assume all of them are present
+                //load credentials from cookie. if oauthToken is not null, assume all of them are not null
                 try
                 {
                     auth.CredentialStore.OAuthToken = Cookies.Read(Request, Server, "TwitterOAuthToken");
