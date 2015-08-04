@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.AddIn", "TweetFromOffice.AddIn\TweetFromOffice.AddIn.csproj", "{BB616737-E409-402A-A433-DFD0D8C6F958}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.AddInWeb", "TweetFromOffice.AddInWeb\TweetFromOffice.AddInWeb.csproj", "{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.OfficeAddIn", "TweetFromOffice.AddIn\TweetFromOffice.OfficeAddIn.csproj", "{BB616737-E409-402A-A433-DFD0D8C6F958}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetFromOffice.BackEnd", "TweetFromOffice.BackEnd\TweetFromOffice.BackEnd.csproj", "{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}"
 EndProject
@@ -21,10 +19,6 @@ Global
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB616737-E409-402A-A433-DFD0D8C6F958}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895A75FA-6E84-4AC2-A78F-8E5CB9C1CEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU

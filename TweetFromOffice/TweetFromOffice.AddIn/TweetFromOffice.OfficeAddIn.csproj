@@ -43,23 +43,12 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="TweetFromOffice.AddInManifest\SharePointProjectItem.spdata">
+    <None Include="TweetFromOffice.OfficeAddInManifest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{285b41fe-db99-4b81-b212-b10ee1f16d17}</SharePointProjectItemId>
     </None>
-    <Content Include="TweetFromOffice.AddInManifest\TweetFromOffice.AddIn.xml">
+    <Content Include="TweetFromOffice.OfficeAddInManifest\TweetFromOffice.AddIn.xml">
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TweetFromOffice.AddInWeb\TweetFromOffice.AddInWeb.csproj">
-      <Project>{54D8B220-8B53-4F67-A113-E1D0F1A00BA2}</Project>
-      <Name>TweetFromOffice.AddInWeb</Name>
-      <Private>True</Private>
-      <RoleType>Web</RoleType>
-      <OutputItemType>SharePointWebProjectOutput</OutputItemType>
-      <RoleName>TweetFromOffice.AddInWeb</RoleName>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

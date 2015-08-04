@@ -7,6 +7,10 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Tweet From Office" />
   <Description DefaultValue="A simple Office add-in that enables the posting of Tweets from within Office "/>
+  <AppDomains>
+    <AppDomain>http://twitter.com</AppDomain>
+    <AppDomain>http://api.twitter.com</AppDomain>
+  </AppDomains>
   <Hosts>
     <Host Name="Workbook" />
     <Host Name="Presentation" />
@@ -14,7 +18,7 @@
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="~remoteAppUrl/App/Home/Home.html" />
+    <SourceLocation DefaultValue="http://localhost:8673/" />
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>

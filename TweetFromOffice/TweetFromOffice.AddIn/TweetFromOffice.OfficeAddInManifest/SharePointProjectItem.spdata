@@ -4,6 +4,6 @@
     <ProjectItemFile Source="TweetFromOffice.AddIn.xml" Type="AppPackage" />
   </Files>
   <ExtensionData>
-    <ExtensionDataItem Key="OfficeAppManifestRelativePath" Value="TweetFromOffice.AddInManifest\TweetFromOffice.AddIn.xml" />
+    <ExtensionDataItem Key="OfficeAppManifestRelativePath" Value="TweetFromOffice.OfficeAddInManifest\TweetFromOffice.AddIn.xml" />
   </ExtensionData>
 </ProjectItem>
