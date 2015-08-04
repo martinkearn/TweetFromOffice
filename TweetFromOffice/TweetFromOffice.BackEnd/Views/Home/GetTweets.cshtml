@@ -2,14 +2,14 @@
 @using System.Collections
 @using LinqToTwitter 
 @{
-    ViewBag.Title = "GetTweets";
+    ViewBag.Title = "Get Tweets";
 }
 
-<h2>GetTweets</h2>
+<h2>@ViewBag.Title</h2>
 
 @foreach (var t in Model)
 {
-<p>@t.Text</p>
+<p>@t.CreatedAt, @t.Text</p>
 }
 
 
