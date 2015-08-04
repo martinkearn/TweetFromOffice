@@ -1,10 +1,12 @@
 ﻿using LinqToTwitter;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TweetFromOffice.BackEnd.Helpers;
 
 namespace TweetFromOffice.BackEnd.Controllers
 {
@@ -17,10 +19,16 @@ namespace TweetFromOffice.BackEnd.Controllers
 
         public async Task<ActionResult> GetTweets()
         {
-            var auth = new MvcAuthorizer
+            MvcAuthorizer auth =  new MvcAuthorizer
             {
                 CredentialStore = new SessionStateCredentialStore()
             };
+
+            // do OAuth if the token is null
+            if (auth.CredentialStore.OAuthToken == null)
+            {
+                return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
+            }
 
             var twitterCtx = new TwitterContext(auth);
 
