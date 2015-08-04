@@ -32,7 +32,9 @@ namespace TweetFromOffice.BackEnd.Controllers
                  select search)
                 .SingleOrDefaultAsync();
 
-            return View(searchResponse);
+            var statuses = searchResponse.Statuses.ToList();
+
+            return View(statuses);
         }
 
         public ActionResult About()

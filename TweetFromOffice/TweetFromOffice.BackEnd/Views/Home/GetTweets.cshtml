@@ -1,7 +1,16 @@
-﻿
+﻿@model List<LinqToTwitter.Status>
+@using System.Collections
+@using LinqToTwitter 
 @{
     ViewBag.Title = "GetTweets";
 }
 
 <h2>GetTweets</h2>
+
+@foreach (var t in Model)
+{
+<p>@t.Text</p>
+}
+
+
 
