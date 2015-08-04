@@ -10,6 +10,7 @@
   <AppDomains>
     <AppDomain>http://twitter.com</AppDomain>
     <AppDomain>http://api.twitter.com</AppDomain>
+    <AppDomain>https://twitter.com</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook" />
@@ -18,7 +19,7 @@
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="http://localhost:8673/" />
+    <SourceLocation DefaultValue="http://tweetfromoffice.azurewebsites.net/" />
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>

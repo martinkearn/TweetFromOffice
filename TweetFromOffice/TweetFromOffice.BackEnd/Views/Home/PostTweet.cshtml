@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "PostTweet";
+}
+
+<h2>PostTweet</h2>
+
+@using (Html.BeginForm())
+{
+    <input id="tweetText" name="tweetText" />
+    <button type="submit" class="btn btn-primary">Post Tweet</button>
+}
+

@@ -17,6 +17,33 @@ namespace TweetFromOffice.BackEnd.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult PostTweet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> PostTweet(string tweetText = "")
+        {
+            MvcAuthorizer auth = new MvcAuthorizer
+            {
+                CredentialStore = new SessionStateCredentialStore()
+            };
+
+            // do OAuth if the token is null
+            if (auth.CredentialStore.OAuthToken == null)
+            {
+                return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
+            }
+
+            var twitterCtx = new TwitterContext(auth);
+            
+            var tweet = await twitterCtx.TweetAsync(tweetText);
+
+            return RedirectToAction("Index");
+        }
+
         public async Task<ActionResult> GetTweets()
         {
             MvcAuthorizer auth =  new MvcAuthorizer
