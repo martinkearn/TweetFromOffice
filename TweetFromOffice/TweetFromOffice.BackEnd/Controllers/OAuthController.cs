@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TweetFromOffice.BackEnd.Helpers;
+using TweetFromOffice.BackEnd.Models;
 
 namespace TweetFromOffice.BackEnd.Controllers
 {
@@ -73,6 +74,29 @@ namespace TweetFromOffice.BackEnd.Controllers
             Cookies.Write(Response, "TwitterUserID", credentials.UserID.ToString());
 
             return Redirect(returnUrl);
+        }
+
+        public PartialViewResult AuthStatus()
+        {
+            var viewModel = new TwitterLoginViewModel()
+            {
+                ScreenName = Cookies.Read(Request, Server, "TwitterScreenName")
+            };
+
+            return PartialView(viewModel);
+        }
+
+        public ActionResult LogOut()
+        {
+            var auth = new MvcAuthorizer
+            {
+                CredentialStore = null
+            };
+            Cookies.Write(Response, "TwitterOAuthToken", string.Empty);
+            Cookies.Write(Response, "TwitterOAuthTokenSecret", string.Empty);
+            Cookies.Write(Response, "TwitterScreenName", string.Empty);
+            Cookies.Write(Response, "TwitterUserID", string.Empty);
+            return RedirectToAction("AuthStatus");
         }
     }
 }

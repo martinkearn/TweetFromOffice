@@ -210,6 +210,7 @@
     <Compile Include="Helpers\Cookies.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\TwitterLoginViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostTweetViewModel.cs" />
     <Compile Include="Models\SearchTweetsViewModel.cs" />
@@ -273,10 +274,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\PostTweet.cshtml" />
     <Content Include="Views\Home\SearchTweets.cshtml" />
+    <Content Include="Views\OAuth\AuthStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\OAuth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
