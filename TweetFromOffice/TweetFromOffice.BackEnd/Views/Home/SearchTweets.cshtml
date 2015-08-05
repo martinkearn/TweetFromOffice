@@ -1,0 +1,28 @@
+﻿@model TweetFromOffice.BackEnd.Models.SearchTweetsViewModel
+ 
+@{
+    ViewBag.Title = "Search Tweets";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Enter your search query. It can be any syntax that you can use for search on twitter.com</p>
+@using (Html.BeginForm("SearchTweets", "Home"))
+{
+    <div class="form-group">
+        <label for="query">Search for ...</label>
+        <input type="text" id="query" name="query" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+}
+@if (Model.Statuses.Count > 0)
+{
+    <hr />
+    <p>Tweets for query of "<b>@Model.Query</b>"</p>
+    foreach (var status in Model.Statuses)
+    {
+        <p>@status.User, @status.Text</p>
+    }
+}
+
+

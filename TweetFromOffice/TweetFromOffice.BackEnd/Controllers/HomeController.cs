@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TweetFromOffice.BackEnd.Helpers;
+using TweetFromOffice.BackEnd.Models;
 
 namespace TweetFromOffice.BackEnd.Controllers
 {
@@ -44,46 +45,48 @@ namespace TweetFromOffice.BackEnd.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<ActionResult> GetTweets()
+        public async Task<ActionResult> SearchTweets(string query = "")
         {
-            MvcAuthorizer auth =  new MvcAuthorizer
+            List<Status> statuses;
+            if (!string.IsNullOrEmpty(query))
             {
-                CredentialStore = new SessionStateCredentialStore()
+
+                MvcAuthorizer auth = new MvcAuthorizer
+                {
+                    CredentialStore = new SessionStateCredentialStore()
+                };
+
+                // do OAuth if the token is null
+                if (auth.CredentialStore.OAuthToken == null)
+                {
+                    return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
+                }
+
+                var twitterCtx = new TwitterContext(auth);
+
+                var searchResponse =
+                    await
+                    (from search in twitterCtx.Search
+                     where search.Type == SearchType.Search &&
+                           search.Query == "\"" +query + "\""
+                     select search)
+                    .SingleOrDefaultAsync();
+
+                statuses = searchResponse.Statuses.ToList();
+            }
+            else
+            {
+                statuses = new List<Status>();
+            }
+            
+            var viewModel = new SearchTweetsViewModel()
+            {
+                Query = query,
+                Statuses = statuses
             };
 
-            // do OAuth if the token is null
-            if (auth.CredentialStore.OAuthToken == null)
-            {
-                return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
-            }
-
-            var twitterCtx = new TwitterContext(auth);
-
-            var searchResponse =
-                await
-                (from search in twitterCtx.Search
-                 where search.Type == SearchType.Search &&
-                       search.Query == "\"Windows 10\""
-                 select search)
-                .SingleOrDefaultAsync();
-
-            var statuses = searchResponse.Statuses.ToList();
-
-            return View(statuses);
+            return View(viewModel);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
