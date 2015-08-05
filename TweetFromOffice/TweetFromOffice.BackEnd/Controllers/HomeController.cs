@@ -18,13 +18,7 @@ namespace TweetFromOffice.BackEnd.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult PostTweet()
-        {
-            return View();
-        }
 
-        [HttpPost]
         public async Task<ActionResult> PostTweet(string tweetText = "")
         {
             MvcAuthorizer auth = new MvcAuthorizer
@@ -38,30 +32,47 @@ namespace TweetFromOffice.BackEnd.Controllers
                 return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
             }
 
-            var twitterCtx = new TwitterContext(auth);
-            
-            var tweet = await twitterCtx.TweetAsync(tweetText);
+            Status postedTweet;
+            ulong postedTweetStatusId = 0;
+            if (!string.IsNullOrEmpty(tweetText))
+            {
+                var twitterCtx = new TwitterContext(auth);
 
-            return RedirectToAction("Index");
+                postedTweet = await twitterCtx.TweetAsync(tweetText);
+
+                postedTweetStatusId = postedTweet.StatusID;
+            }
+            else
+            {
+                postedTweet = null;
+            }
+
+            var viewModel = new PostTweetViewModel()
+            {
+                TweetText = tweetText,
+                PostedTweet = postedTweet,
+                PostedTweetStatusId = postedTweetStatusId
+            };
+
+            return View(viewModel);
         }
 
         public async Task<ActionResult> SearchTweets(string query = "")
         {
+            MvcAuthorizer auth = new MvcAuthorizer
+            {
+                CredentialStore = new SessionStateCredentialStore()
+            };
+
+            // do OAuth if the token is null
+            if (auth.CredentialStore.OAuthToken == null)
+            {
+                return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
+            }
+
             List<Status> statuses;
             if (!string.IsNullOrEmpty(query))
             {
-
-                MvcAuthorizer auth = new MvcAuthorizer
-                {
-                    CredentialStore = new SessionStateCredentialStore()
-                };
-
-                // do OAuth if the token is null
-                if (auth.CredentialStore.OAuthToken == null)
-                {
-                    return RedirectToAction("BeginAsync", "OAuth", new { returnUrl = Request.Url });
-                }
-
                 var twitterCtx = new TwitterContext(auth);
 
                 var searchResponse =
